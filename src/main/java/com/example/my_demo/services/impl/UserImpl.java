@@ -95,12 +95,7 @@ public class UserImpl implements UserService {
         user.setPassword(userDto.getPassword());
         user.setAbout(userDto.getAbout());
         Set<Roles> rolesSet=userDto.getRoles();
-        if(rolesSet.size()!=0){
-            System.out.println("size"+rolesSet.size());
-            for(Roles roles:rolesSet){
-                System.out.println(roles.getName());
-            }
-        }
+        rolesSet.stream().map(i->i.getName()).forEach(System.out::println);
         return user;
     }
 }
